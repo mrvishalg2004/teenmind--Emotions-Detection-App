@@ -1,0 +1,45 @@
+==============================================================
+TEENMIND - MENTAL HEALTH APP: MACHINE LEARNING MODEL INFORMATION
+==============================================================
+
+1. OVERVIEW
+This document provides an overview of the Machine Learning (ML) implementation used in the TeenMind project. The ML model is responsible for evaluating student questionnaire responses across multiple behavioral vectors to accurately predict mental health risks.
+
+2. ALGORITHM & APPROACH
+The core algorithm utilized for this application is a **Multilayer Perceptron (MLP) - Artificial Neural Network (ANN)**.
+
+Why the MLP Neural Network was used:
+- Ability to capture non-linear relationships: Mental health indicators (like how sleep impacts stress, or academic pressure impacts anxiety) are deeply interconnected. An ANN excels at identifying these hidden, complex associative patterns better than basic linear or logical algorithms.
+- Iterative Learning Optimization: As evidenced by the 35 epochs tracked during training, the neural network repetitively adjusted its internal weights (using backpropagation) through the dataset to minimize classification errors and avoid overfitting.
+
+3. DATASET & FEATURES
+Located in `ml-service/Datasets/`
+- Train.csv: Used to fit the model parameters.
+- Test.csv: Unseen data used to validate the model and prevent overfitting.
+- predicted_status.csv: Final model inferences.
+
+The model analyzes a 6-dimensional feature vector (rated 1-5):
+1. Stress
+2. Anxiety
+3. Sleep Quality
+4. Social Connection
+5. Academic Pressure
+6. Emotional State
+
+4. PREDICTION CATEGORIES (TARGET LABELS)
+The classification model maps the input features to 4 specific mental health states:
+- Normal (Low Risk)
+- Mild Stress (Moderate Risk)
+- High Stress (High Risk)
+- Depression Risk (Critical Risk)
+
+5. MODEL EVALUATION & METRICS
+Located in `ml-service/test results/`, the model has been rigorously validated using standard data science techniques:
+
+- Epoch Training Curve (35 Epochs): Tracks the model's loss and accuracy over 35 training cycles to ensure the model converged smoothly and didn't memorize the data (overfit).
+- F1-Score Metrics: The harmonic mean of precision and recall. This is crucial in healthcare/medical ML because the data might be imbalanced, and we want to ensure high accuracy for minority but severe classes (like Depression Risk).
+- Precision-Recall Curves: Used to analyze the tradeoff between false positives (predicting depression when there is none) and false negatives (missing a depression risk). In this context, minimizing false negatives is prioritized.
+
+6. INTEGRATION
+- The fully trained model is exported and saved locally in `ml-service/ml_models/mental health`.
+- A FastAPI Python backend loads this model into memory. When a student submits a journal or questionnaire, the API converts the responses into the 6D feature vector, passes it through the model, and instantly returns the prediction, a risk level, confidence score, and associated therapeutic recommendations.
