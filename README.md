@@ -24,10 +24,14 @@
 ### 🎬 Product Presentation & Launch Video
 
 <div align="center">
-  <video src="docs/readme-assets/presentation_video.mp4" width="85%" controls>
-    <a href="docs/readme-assets/presentation_video.mp4">▶️ Watch the TeenMind 18s Launch & Product Presentation Video</a>
-  </video>
-  <p><em>Launch presentation demonstrating the complete TeenMind mobile ecosystem: Student Telemetry, MindBot AI companion, and Parent Guardian Portal.</em></p>
+  <a href="docs/readme-assets/presentation_video.mp4">
+    <img src="docs/readme-assets/presentation_preview.gif" alt="TeenMind 18s Launch Presentation Video Preview" width="100%" />
+  </a>
+  <br />
+  <p>
+    <b>▶️ <a href="docs/readme-assets/presentation_video.mp4">Click here or on the preview window above to play the full 1080p HD video with audio</a></b>
+  </p>
+  <p><em>Interactive launch presentation demonstrating the complete TeenMind mobile ecosystem: Student Telemetry, MindBot AI companion, and Parent Guardian Portal.</em></p>
   <p><sub>Direct video file: <a href="docs/readme-assets/presentation_video.mp4">docs/readme-assets/presentation_video.mp4</a></sub></p>
 </div>
 
